@@ -38,6 +38,16 @@ struct SpritesABC
 - Otherwise, use `SpritesABC::drawFX` as a general purpose method.
   - The `image` parameter should point to FX data in `Sprites::drawOverwrite` or `Sprites::drawPlusMask` format.
 
+## Performance and Design Notes
+
+- `SpritesABC` methods require sprite height to be a multiple of eight pixels (this is more restrictive than `Sprites`/`SpritesB` methods or `FX::drawBitmap`).
+- For `SpritesABC::drawFX`, the width and height should be encoded in the sprite data as single byte values, as in sprites encoded for `Sprites`/`SpritesB`/`SpritesU`.
+- `SpritesABC::drawSizedFX` and `SpritesABC::drawBasicFX` are to be preferred to `SpritesABC::drawFX` when possible. The latter requires an additional seek to retrieve the sprite dimensions, which costs around 100-150 additional cycles per call.
+- SpritesABC routines support only FX sprites, not `PROGMEM` sprites, and the setup and clipping calculations for sprite drawing are intermixed with the initial FX seek.
+- In most cases SpritesABC uses a [17-cycle SPI receive-only loop](https://community.arduboy.com/t/avr-spi-musings/11949/13) to stream sprite data from the flash chip.
+- Like SpritesU, SpritesABC does not perform an FX reseek every eight rows of pixels unless necessary due to clipping.
+- `Sprites::drawPlusMask` contains an optimization for when the y-coordinate is a multiple of eight, and is faster than SpritesABC in this case. This optimization is not present in SpritesU and is not feasible for FX sprites where the SPI transfer rate is a performance limiter.
+
 ## Performance Benchmarks
 
 The numbers in the following tables are cycles, counted by [Ardens](https://github.com/tiberiusbrown/Ardens) using `break` instructions to denote the beginning and end of the measured section ([benchmark code](https://github.com/tiberiusbrown/Ardens/tree/master/bench/cycles/sprites_cycles)).
@@ -192,11 +202,3 @@ void debug_cycles(F&& f)
 | SpritesABC::drawFX (MODE_PLUSMASK) | 36210 | 36210 | 36209 | 18981 |
 | SpritesABC::drawSizedFX (MODE_PLUSMASK) | 36122 | 36080 | 36079 | 18861 |
 | SpritesABC::drawBasicFX (MODE_PLUSMASK) | 36055 | - | 36025 | 18816 |
-
-## Performance and Design Notes
-
-- `SpritesABC::drawSizedFX` and `SpritesABC::drawBasicFX` are to be preferred to `SpritesABC::drawFX` when possible. The latter requires an additional seek to retrieve the sprite dimensions, which costs around 100-150 additional cycles per call.
-- SpritesABC routines support only FX sprites, not `PROGMEM` sprites, and the setup and clipping calculations for sprite drawing are intermixed with the initial FX seek.
-- In most cases SpritesABC uses a [17-cycle SPI receive-only loop](https://community.arduboy.com/t/avr-spi-musings/11949/13) to stream sprite data from the flash chip.
-- Like SpritesU, SpritesABC does not perform an FX reseek every eight rows of pixels unless necessary due to clipping.
-- `Sprites::drawPlusMask` contains an optimization for when the y-coordinate is a multiple of eight, and is faster than SpritesABC in this case. This optimization is not present in SpritesU and is not feasible for FX sprites where the SPI transfer rate is a performance limiter.
