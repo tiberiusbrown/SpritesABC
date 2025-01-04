@@ -1,6 +1,6 @@
 # SpritesABC
 
-SpritesABC is a library for the [Arduboy FX](https://www.arduboy.com/) that provides performance-optimized drawing routines for sprites stored on the Arduboy FX's flash chip. The performance is probably overkill for most monochrome games, but can be vital for [grayscale](https://github.com/tiberiusbrown/ArduGray_Demo).
+[SpritesABC](https://github.com/tiberiusbrown/SpritesABC) is a library for the [Arduboy FX](https://www.arduboy.com/) that provides performance-optimized drawing routines for sprites stored on the Arduboy FX's flash chip. The performance is probably overkill for most monochrome games, but can be vital for [grayscale](https://github.com/tiberiusbrown/ArduGray_Demo).
 
 SpritesABC was originally written for the [Arduboy interpreter for ABC](https://github.com/tiberiusbrown/abc).
 
