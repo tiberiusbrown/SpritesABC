@@ -31,11 +31,11 @@ struct SpritesABC
 };
 ```
 
-- Use `SpritesABC::drawBasic` whenever possible.
+- Use `SpritesABC::drawBasicFX` whenever possible.
   - The `image` parameter should point to raw pixel FX data (without width/height information).
-- Otherwise, use `SpritesABC::drawSized` if the sprite dimensions are known at call-time to avoid an additional FX seek.
+- Otherwise, use `SpritesABC::drawSizedFX` if the sprite dimensions are known at call-time to avoid an additional FX seek.
   - The `image` parameter should point to raw pixel FX data (without width/height information).
-- Otherwise, use `SpritesABC::draw` as a general purpose method.
+- Otherwise, use `SpritesABC::drawFX` as a general purpose method.
   - The `image` parameter should point to FX data in `Sprites::drawOverwrite` or `Sprites::drawPlusMask` format.
 
 ## Performance Benchmarks
@@ -195,7 +195,7 @@ void debug_cycles(F&& f)
 
 ## Performance and Design Notes
 
-- `SpritesABC::drawSized` and `SpritesABC::drawBasic` are to be preferred to `SpritesABC::draw` when possible. The latter requires an additional seek to retrieve the sprite dimensions, which costs around 100-150 additional cycles per call.
+- `SpritesABC::drawSizedFX` and `SpritesABC::drawBasicFX` are to be preferred to `SpritesABC::drawFX` when possible. The latter requires an additional seek to retrieve the sprite dimensions, which costs around 100-150 additional cycles per call.
 - SpritesABC routines support only FX sprites, not `PROGMEM` sprites, and the setup and clipping calculations for sprite drawing are intermixed with the initial FX seek.
 - In most cases SpritesABC uses a [17-cycle SPI receive-only loop](https://community.arduboy.com/t/avr-spi-musings/11949/13) to stream sprite data from the flash chip.
 - Like SpritesU, SpritesABC does not perform an FX reseek every eight rows of pixels unless necessary due to clipping.
