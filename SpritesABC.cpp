@@ -1,7 +1,7 @@
 #include "SpritesABC.hpp"
 
 [[ gnu::naked, gnu::noinline ]]
-static void SpritesABC::draw(
+static void SpritesABC::drawFX(
     int16_t x, int16_t y,
     uint24_t image, uint8_t mode, uint16_t frame)
 {
@@ -11,16 +11,17 @@ static void SpritesABC::draw(
             push  r11
             push  r12
             push  r14
-            push  r15
-            push  r16
     
             cbi   %[fxport], %[fxbit]
             ldi   r30, 3
             out   %[spdr], r30
+            push  r15
+            push  r16
             movw  r10, r14
             mov   r12, r16
             movw  r14, r18
             mov   r16, r20
+            ldi   r30, 2
             add   r14, r30
             adc   r15, r1
             adc   r16, r1
@@ -28,9 +29,6 @@ static void SpritesABC::draw(
             add   r19, r0
             lds   r0, %[page]+1
             adc   r20, r0
-            ldi   r30, 2
-            rjmp  .+0
-            rjmp  .+0
             out   %[spdr], r20
             rcall L%=_delay_17
             out   %[spdr], r19
@@ -75,12 +73,12 @@ static void SpritesABC::draw(
         , [spsr]       "I"   (_SFR_IO_ADDR(SPSR))
         , [sreg]       "I"   (_SFR_IO_ADDR(SREG))
         , [page]       "i"   (&FX::programDataPage)
-        , [drawf]      ""    (SpritesABC::drawSized)
+        , [drawf]      ""    (SpritesABC::drawSizedFX)
         );
 }
 
 [[ gnu::naked, gnu::noinline ]]
-static void SpritesABC::drawSized(
+static void SpritesABC::drawSizedFX(
     int16_t x, int16_t y, uint8_t w, uint8_t h,
     uint24_t image, uint8_t mode, uint16_t frame)
 {
@@ -91,8 +89,6 @@ static void SpritesABC::drawSized(
             push r4
             push r5
             push r6
-            push r8
-            push r9
             
             ; w * (h >> 3)
             mov  r0, r18
@@ -100,18 +96,18 @@ static void SpritesABC::drawSized(
             lsr  r0
             lsr  r0
             mul  r0, r20
-            movw r8, r0
+            movw r30, r0
             
             ; t = frame * w * (h >> 3)
-            mul  r8, r10
+            mul  r30, r10
             movw r4, r0
-            mul  r9, r10
+            mul  r31, r10
             add  r5, r0
             adc  r6, r1
-            mul  r8, r15
+            mul  r30, r15
             add  r5, r0
             adc  r6, r1
-            mul  r9, r15
+            mul  r31, r15
             add  r6, r0
             clr  r1
             
@@ -128,8 +124,6 @@ static void SpritesABC::drawSized(
             adc  r16, r6
         1:
             
-            pop  r9
-            pop  r8
             pop  r6
             pop  r5
             pop  r4
@@ -138,12 +132,12 @@ static void SpritesABC::drawSized(
     
         )ASM"
         :
-        : [drawf] "" (SpritesABC::drawBasic)
+        : [drawf] "" (SpritesABC::drawBasicFX)
         );
 }
 
 [[ gnu::naked, gnu::noinline ]]
-void SpritesABC::drawBasic(
+void SpritesABC::drawBasicFX(
     int16_t x, int16_t y, uint8_t w, uint8_t h,
     uint24_t image, uint8_t mode)
 {
