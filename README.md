@@ -69,16 +69,16 @@ void debug_cycles(F&& f)
 
 | Method | (0, 0) f0 | (0, 0) f1 | (0, 4) f0 | (-1, 0) f0 |
 |---|:-:|:-:|:-:|:-:|
-| <td colspan=5>*Unmasked*</td> |
+| <td colspan=2>*Unmasked*</td> |
 | Sprites::drawOverwrite | 298 | 306 | 374 | 247 |
 | SpritesB::drawOverwrite | 421 | 443 | 519 | 358 |
 | SpritesU::drawOverwrite | 298 | 322 | 298 | 286 |
 | FX::drawBitmap (dbmOverwrite) | 643 | 642 | 656 | 600 |
 | SpritesU::drawOverwriteFX | 620 | 644 | 620 | 607 |
-| SpritesABC::drawFX (MODE_OVERWRITE) | 431 | 432 | 431 | 423 |
-| SpritesABC::drawSizedFX (MODE_OVERWRITE) | 316 | 312 | 311 | 303 |
+| SpritesABC::drawFX (MODE_OVERWRITE) | 433 | 434 | 433 | 425 |
+| SpritesABC::drawSizedFX (MODE_OVERWRITE) | 318 | 314 | 313 | 305 |
 | SpritesABC::drawBasicFX (MODE_OVERWRITE) | 266 | - | 266 | 260 |
-| <td colspan=5>*Masked*</td> |
+| <td colspan=2>*Masked*</td> |
 | Sprites::drawPlusMask | 267 | 291 | 311 | 241 |
 | SpritesB::drawPlusMask | 459 | 483 | 597 | 377 |
 | SpritesU::drawPlusMask | 324 | 348 | 324 | 304 |
@@ -92,16 +92,16 @@ void debug_cycles(F&& f)
 
 | Method | (0, 0) f0 | (0, 0) f1 | (0, 4) f0 | (-4, 0) f0 |
 |---|:-:|:-:|:-:|:-:|
-| <td colspan=5>*Unmasked*</td> |
+| <td colspan=2>*Unmasked*</td> |
 | Sprites::drawOverwrite | 508 | 516 | 794 | 352 |
 | SpritesB::drawOverwrite | 787 | 809 | 1119 | 541 |
 | SpritesU::drawOverwrite | 418 | 442 | 418 | 346 |
 | FX::drawBitmap (dbmOverwrite) | 895 | 894 | 950 | 726 |
 | SpritesU::drawOverwriteFX | 734 | 758 | 734 | 664 |
-| SpritesABC::drawFX (MODE_OVERWRITE) | 539 | 540 | 539 | 473 |
-| SpritesABC::drawSizedFX (MODE_OVERWRITE) | 424 | 420 | 419 | 353 |
+| SpritesABC::drawFX (MODE_OVERWRITE) | 541 | 542 | 541 | 475 |
+| SpritesABC::drawSizedFX (MODE_OVERWRITE) | 426 | 422 | 421 | 355 |
 | SpritesABC::drawBasicFX (MODE_OVERWRITE) | 374 | - | 374 | 310 |
-| <td colspan=5>*Masked*</td> |
+| <td colspan=2>*Masked*</td> |
 | Sprites::drawPlusMask | 411 | 435 | 539 | 313 |
 | SpritesB::drawPlusMask | 939 | 963 | 1431 | 617 |
 | SpritesU::drawPlusMask | 498 | 522 | 498 | 391 |
@@ -115,16 +115,16 @@ void debug_cycles(F&& f)
 
 | Method | (0, 0) f0 | (0, 0) f1 | (0, 4) f0 | (-8, 0) f0 |
 |---|:-:|:-:|:-:|:-:|
-| <td colspan=5>*Unmasked*</td> |
+| <td colspan=2>*Unmasked*</td> |
 | Sprites::drawOverwrite | 1367 | 1375 | 2493 | 791 |
 | SpritesB::drawOverwrite | 2281 | 2303 | 3549 | 1303 |
 | SpritesU::drawOverwrite | 908 | 932 | 908 | 596 |
 | FX::drawBitmap (dbmOverwrite) | 2021 | 2020 | 2244 | 1348 |
 | SpritesU::drawOverwriteFX | 1206 | 1230 | 1206 | 1005 |
-| SpritesABC::drawFX (MODE_OVERWRITE) | 991 | 992 | 991 | 797 |
-| SpritesABC::drawSizedFX (MODE_OVERWRITE) | 876 | 872 | 871 | 677 |
+| SpritesABC::drawFX (MODE_OVERWRITE) | 993 | 994 | 993 | 799 |
+| SpritesABC::drawSizedFX (MODE_OVERWRITE) | 878 | 874 | 873 | 679 |
 | SpritesABC::drawBasicFX (MODE_OVERWRITE) | 826 | - | 826 | 634 |
-| <td colspan=5>*Masked*</td> |
+| <td colspan=2>*Masked*</td> |
 | Sprites::drawPlusMask | 999 | 1023 | 1463 | 613 |
 | SpritesB::drawPlusMask | 2889 | 2913 | 4797 | 1607 |
 | SpritesU::drawPlusMask | 1204 | 1228 | 1204 | 749 |
@@ -138,16 +138,16 @@ void debug_cycles(F&& f)
 
 | Method | (0, 0) f0 | (0, 0) f1 | (0, 4) f0 | (-16, 0) f0 |
 |---|:-:|:-:|:-:|:-:|
-| <td colspan=5>*Unmasked*</td> |
+| <td colspan=2>*Unmasked*</td> |
 | Sprites::drawOverwrite | 4765 | 4773 | 9251 | 2509 |
 | SpritesB::drawOverwrite | 8197 | 8219 | 13209 | 4291 |
 | SpritesU::drawOverwrite | 2848 | 2872 | 2848 | 1576 |
 | FX::drawBitmap (dbmOverwrite) | 6289 | 6288 | 7184 | 3600 |
 | SpritesU::drawOverwriteFX | 3062 | 3086 | 3062 | 2143 |
-| SpritesABC::drawFX (MODE_OVERWRITE) | 2759 | 2760 | 2759 | 1877 |
-| SpritesABC::drawSizedFX (MODE_OVERWRITE) | 2644 | 2640 | 2639 | 1757 |
+| SpritesABC::drawFX (MODE_OVERWRITE) | 2761 | 2762 | 2761 | 1879 |
+| SpritesABC::drawSizedFX (MODE_OVERWRITE) | 2646 | 2642 | 2641 | 1759 |
 | SpritesABC::drawBasicFX (MODE_OVERWRITE) | 2594 | - | 2594 | 1714 |
-| <td colspan=5>*Masked*</td> |
+| <td colspan=2>*Masked*</td> |
 | Sprites::drawPlusMask | 3327 | 3351 | 5135 | 1789 |
 | SpritesB::drawPlusMask | 10629 | 10653 | 18201 | 5507 |
 | SpritesU::drawPlusMask | 4008 | 4032 | 4008 | 2161 |
@@ -161,16 +161,16 @@ void debug_cycles(F&& f)
 
 | Method | (0, 0) f0 | (0, 0) f1 | (0, 4) f0 | (-32, 0) f0 |
 |---|:-:|:-:|:-:|:-:|
-| <td colspan=5>*Unmasked*</td> |
+| <td colspan=2>*Unmasked*</td> |
 | Sprites::drawOverwrite | 18281 | 18289 | 35375 | 9305 |
 | SpritesB::drawOverwrite | 31741 | 31763 | 50705 | 16123 |
 | SpritesU::drawOverwrite | 10173 | 10197 | 10173 | 5253 |
 | FX::drawBitmap (dbmOverwrite) | 22888 | 22887 | 26032 | 12135 |
 | SpritesU::drawOverwriteFX | 10348 | 10372 | 10348 | 6204 |
-| SpritesABC::drawFX (MODE_OVERWRITE) | 9673 | 9674 | 9673 | 5724 |
-| SpritesABC::drawSizedFX (MODE_OVERWRITE) | 9558 | 9554 | 9553 | 5604 |
+| SpritesABC::drawFX (MODE_OVERWRITE) | 9675 | 9676 | 9675 | 5726 |
+| SpritesABC::drawSizedFX (MODE_OVERWRITE) | 9560 | 9556 | 9555 | 5606 |
 | SpritesABC::drawBasicFX (MODE_OVERWRITE) | 9508 | - | 9508 | 5561 |
-| <td colspan=5>*Masked*</td> |
+| <td colspan=2>*Masked*</td> |
 | Sprites::drawPlusMask | 12591 | 12615 | 19391 | 6445 |
 | SpritesB::drawPlusMask | 41469 | 41493 | 70673 | 20987 |
 | SpritesU::drawPlusMask | 14725 | 14749 | 14725 | 7534 |
@@ -184,16 +184,16 @@ void debug_cycles(F&& f)
 
 | Method | (0, 0) f0 | (0, 0) f1 | (0, 4) f0 | (-64, 0) f0 |
 |---|:-:|:-:|:-:|:-:|
-| <td colspan=5>*Unmasked*</td> |
+| <td colspan=2>*Unmasked*</td> |
 | Sprites::drawOverwrite | 36202 | 36210 | 70384 | 18265 |
 | SpritesB::drawOverwrite | 62973 | 62995 | 100881 | 31739 |
 | SpritesU::drawOverwrite | 20029 | 20053 | 20029 | 10181 |
 | FX::drawBitmap (dbmOverwrite) | 44392 | 44391 | 50672 | 22887 |
 | SpritesU::drawOverwriteFX | 20012 | 20036 | 20012 | 11036 |
-| SpritesABC::drawFX (MODE_OVERWRITE) | 18825 | 18826 | 18825 | 10300 |
-| SpritesABC::drawSizedFX (MODE_OVERWRITE) | 18710 | 18706 | 18705 | 10180 |
+| SpritesABC::drawFX (MODE_OVERWRITE) | 18827 | 18828 | 18827 | 10302 |
+| SpritesABC::drawSizedFX (MODE_OVERWRITE) | 18712 | 18708 | 18707 | 10182 |
 | SpritesABC::drawBasicFX (MODE_OVERWRITE) | 18660 | - | 18660 | 10137 |
-| <td colspan=5>*Masked*</td> |
+| <td colspan=2>*Masked*</td> |
 | Sprites::drawPlusMask | 24880 | 24904 | 38464 | 12589 |
 | SpritesB::drawPlusMask | 82429 | 82453 | 140817 | 41467 |
 | SpritesU::drawPlusMask | 29125 | 29149 | 29125 | 14734 |
